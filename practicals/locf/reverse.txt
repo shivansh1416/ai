@@ -1,0 +1,17 @@
+kb - 
+
+reverse([], []).   % Base case: Reversing an empty list results in an empty list
+reverse([X|Xs], Rev) :-
+    reverse(Xs, RevTail),
+    conc(RevTail, [X], Rev).   % Concatenate the reversed tail with the head of the original list
+
+q - 
+
+?- reverse([1, 2, 3, 4, 5], Reversed).
+Reversed = [5, 4, 3, 2, 1].
+
+?- reverse([a, b, c, d, e], Reversed).
+Reversed = [e, d, c, b, a].
+
+?- reverse([], Reversed).
+Reversed = [].

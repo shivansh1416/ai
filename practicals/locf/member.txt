@@ -1,0 +1,15 @@
+kb - 
+
+memb(X, [X|_]).    % X is a member of the list if it is the head of the list
+memb(X, [_|Tail]) :- memb(X, Tail).   % X is a member of the list if it is a member of the tail of the list
+
+q - 
+
+?- memb(3, [1, 2, 3, 4]).
+true.
+
+?- memb(5, [1, 2, 3, 4]).
+false.
+
+?- memb(apple, [banana, orange, apple, mango]).
+true.

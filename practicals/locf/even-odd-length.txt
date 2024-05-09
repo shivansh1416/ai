@@ -1,0 +1,35 @@
+kb - 
+
+evenlength([]).             % Base case: An empty list has an even length
+evenlength([_,_|Tail]) :-   % Recursively check if the tail has an even length
+    evenlength(Tail).
+
+oddlength([_]).             % Base case: A list with a single element has an odd length
+oddlength([_,_|Tail]) :-    % Recursively check if the tail has an even length
+    oddlength(Tail).
+
+q - 
+
+?- evenlength([1, 2, 3, 4, 5]).
+true.
+
+?- evenlength([a, b, c, d, e, f, g]).
+true.
+
+?- evenlength([]).
+true.
+
+?- evenlength([1, 2, 3]).
+false.
+
+?- oddlength([1, 2, 3, 4, 5]).
+false.
+
+?- oddlength([a, b, c, d, e, f, g]).
+false.
+
+?- oddlength([1]).
+true.
+
+?- oddlength([a, b, c]).
+true.

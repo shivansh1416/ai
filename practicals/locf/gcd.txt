@@ -1,0 +1,19 @@
+kb - 
+
+gcd(X, 0, X) :- X > 0.
+gcd(X, Y, G) :- 
+    Y > 0,
+    Z is X mod Y,
+    gcd(Y, Z, G).
+
+
+q - 
+
+?- gcd(48, 18, G).
+G = 6.
+
+?- gcd(30, 42, G).
+G = 6.
+
+?- gcd(17, 5, G).
+G = 1.

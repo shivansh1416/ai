@@ -1,0 +1,26 @@
+kb - 
+
+reverse([], []).   % Base case: Reversing an empty list results in an empty list
+reverse([X|Xs], Rev) :-
+    reverse(Xs, RevTail),
+    conc(RevTail, [X], Rev).   % Concatenate the reversed tail with the head of the original list
+
+palindrome(L) :-
+    reverse(L, L).   % Check if the reversed list is the same as the original list
+
+q - 
+
+?- palindrome([1, 2, 3, 2, 1]).
+true.
+
+?- palindrome([a, b, c, c, b, a]).
+true.
+
+?- palindrome([1, 2, 3, 4, 5]).
+false.
+
+?- palindrome([a, b, c, d]).
+false.
+
+?- palindrome([]).
+true.

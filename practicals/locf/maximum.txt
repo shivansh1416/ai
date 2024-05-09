@@ -1,0 +1,19 @@
+kb - 
+
+max(X, Y, M) :-
+    (X >= Y ->
+        M = X
+    ;   M = Y
+    ).
+
+
+q - 
+
+?- max(5, 8, Max).
+Max = 8.
+
+?- max(10, 3, Max).
+Max = 10.
+
+?- max(7, 7, Max).
+Max = 7.

@@ -1,0 +1,20 @@
+kb - 
+
+maxlist([X], X).   % Base case: The maximum number in a list with a single element is that element
+maxlist([H|T], Max) :-
+    maxlist(T, MaxTail),   % Recursively find the maximum number in the tail of the list
+    Max is max(H, MaxTail).   % Take the maximum of the head of the list and the maximum of the tail
+
+q - 
+
+?- maxlist([1, 5, 3, 9, 2], Max).
+Max = 9.
+
+?- maxlist([10, 2, 8, 4, 6], Max).
+Max = 10.
+
+?- maxlist([5, 5, 5, 5, 5], Max).
+Max = 5.
+
+?- maxlist([-3, -8, -5, -2, -1], Max).
+Max = -1.

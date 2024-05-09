@@ -1,0 +1,20 @@
+kb - 
+
+sumlist([], 0).   % Base case: The sum of an empty list is 0
+sumlist([X|Xs], Sum) :-
+    sumlist(Xs, SumTail),   % Recursively calculate the sum of the tail of the list
+    Sum is SumTail + X.     % Add the head of the list to the sum of the tail
+
+q - 
+
+?- sumlist([1, 2, 3, 4, 5], Sum).
+Sum = 15.
+
+?- sumlist([10, 20, 30, 40, 50], Sum).
+Sum = 150.
+
+?- sumlist([2, 4, 6, 8, 10], Sum).
+Sum = 30.
+
+?- sumlist([], Sum).
+Sum = 0.

@@ -1,0 +1,19 @@
+kb - 
+
+conc([], L, L).    % Base case: Concatenating an empty list with another list results in the same list
+conc([X|L1], L2, [X|L3]) :-
+    conc(L1, L2, L3).    % Recursive case: Remove the head of the first list and concatenate the tail with the second list
+
+q - 
+
+?- conc([1, 2, 3], [4, 5, 6], Result).
+Result = [1, 2, 3, 4, 5, 6].
+
+?- conc([a, b], [c, d, e], Result).
+Result = [a, b, c, d, e].
+
+?- conc([], [x, y, z], Result).
+Result = [x, y, z].
+
+?- conc([1, 2], [], Result).
+Result = [1, 2].

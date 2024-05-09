@@ -1,0 +1,9 @@
+
+kb - 
+
+sum(X, Y, Sum) :- Sum is X + Y.
+
+q - 
+
+?- sum(5, 3, Result).
+Result = 8.

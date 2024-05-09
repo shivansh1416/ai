@@ -1,0 +1,22 @@
+kb -
+
+insert_nth(Item, 1, List, [Item|List]).   % Base case: Insert the item at the beginning of the list
+
+insert_nth(Item, N, [Head|Tail], [Head|Result]) :-
+    N > 1,                                  % Ensure N is greater than 1
+    N1 is N - 1,                            % Decrement N by 1
+    insert_nth(Item, N1, Tail, Result).    % Recursively insert the item into the tail of the list
+
+q -
+
+?- insert_nth(9, 3, [1, 2, 3, 4, 5], Result).
+Result = [1, 2, 9, 3, 4, 5].
+
+?- insert_nth(apple, 2, [banana, orange, mango], Result).
+Result = [banana, apple, orange, mango].
+
+?- insert_nth(100, 1, [a, b, c], Result).
+Result = [100, a, b, c].
+
+?- insert_nth(d, 5, [a, b, c, e, f], Result).
+Result = [a, b, c, e, d, f].

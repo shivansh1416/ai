@@ -1,0 +1,22 @@
+kb - 
+
+tower_of_hanoi(1, Start, End, _) :-
+    write('Move disk from '), write(Start), write(' to '), write(End), nl.
+tower_of_hanoi(N, Start, End, Temp) :-
+    N > 1,
+    N1 is N - 1,
+    tower_of_hanoi(N1, Start, Temp, End),
+    tower_of_hanoi(1, Start, End, _),
+    tower_of_hanoi(N1, Temp, End, Start).
+
+q - 
+
+?- tower_of_hanoi(3, 'A', 'C', 'B').
+Move disk from A to C
+Move disk from A to B
+Move disk from C to B
+Move disk from A to C
+Move disk from B to A
+Move disk from B to C
+Move disk from A to C
+true .

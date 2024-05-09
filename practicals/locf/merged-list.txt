@@ -1,0 +1,29 @@
+kb - 
+
+merge([], L, L).    % Base case: merging an empty list with any other list results in the second list
+merge(L, [], L).    % Base case: merging any list with an empty list results in the first list
+
+merge([X|Xs], [Y|Ys], [X|Result]) :-   % If X is less than or equal to Y, X comes first in the merged list
+    X =< Y,
+    merge(Xs, [Y|Ys], Result).
+
+merge([X|Xs], [Y|Ys], [Y|Result]) :-   % If Y is less than X, Y comes first in the merged list
+    X > Y,
+    merge([X|Xs], Ys, Result).
+
+q -
+
+?- merge([1, 3, 5], [2, 4, 6], Result).
+Result = [1, 2, 3, 4, 5, 6].
+
+?- merge([10, 20, 30], [15, 25, 35], Result).
+Result = [10, 15, 20, 25, 30, 35].
+
+?- merge([], [1, 2, 3], Result).
+Result = [1, 2, 3].
+
+?- merge([4, 5, 6], [], Result).
+Result = [4, 5, 6].
+
+?- merge([], [], Result).
+Result = [].

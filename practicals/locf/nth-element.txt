@@ -1,0 +1,21 @@
+kb - 
+
+nth_element(1, [X|_], X).   % Base case: The first element of the list is the Nth element
+nth_element(N, [_|Tail], X) :-
+    N > 1,                  % Ensure N is greater than 1
+    N1 is N - 1,            % Decrement N by 1
+    nth_element(N1, Tail, X).  % Recursively search for the Nth element in the tail of the list
+
+q - 
+
+?- nth_element(3, [a, b, c, d, e], X).
+X = c.
+
+?- nth_element(1, [apple, banana, orange], X).
+X = apple.
+
+?- nth_element(5, [1, 2, 3, 4, 5], X).
+X = 5.
+
+?- nth_element(2, [p, q, r, s, t], X).
+X = q.

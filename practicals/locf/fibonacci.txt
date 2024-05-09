@@ -1,0 +1,28 @@
+kb - 
+
+generate_fib(0, 0).    % Base case: the 0th Fibonacci number is 0
+generate_fib(1, 1).    % Base case: the 1st Fibonacci number is 1
+
+generate_fib(N, T) :-
+    N > 1,
+    N1 is N - 1,
+    N2 is N - 2,
+    generate_fib(N1, T1),
+    generate_fib(N2, T2),
+    T is T1 + T2.
+
+
+q - 
+
+
+?- generate_fib(0, Term).
+Term = 0.
+
+?- generate_fib(1, Term).
+Term = 1.
+
+?- generate_fib(5, Term).
+Term = 5.
+
+?- generate_fib(10, Term).
+Term = 55.

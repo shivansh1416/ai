@@ -1,0 +1,22 @@
+kb - 
+
+delete_nth(1, [_|Tail], Tail).   % Base case: Remove the first element of the list
+
+delete_nth(N, [Head|Tail], [Head|Result]) :-
+    N > 1,                        % Ensure N is greater than 1
+    N1 is N - 1,                  % Decrement N by 1
+    delete_nth(N1, Tail, Result). % Recursively delete the Nth element from the tail of the list
+
+q - 
+
+?- delete_nth(3, [1, 2, 3, 4, 5], Result).
+Result = [1, 2, 4, 5].
+
+?- delete_nth(2, [a, b, c, d, e], Result).
+Result = [a, c, d, e].
+
+?- delete_nth(1, [x, y, z], Result).
+Result = [y, z].
+
+?- delete_nth(5, [1, 2, 3, 4, 5], Result).
+Result = [1, 2, 3, 4].
